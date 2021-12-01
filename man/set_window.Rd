@@ -2,8 +2,7 @@
 % Please edit documentation in R/set_window.R
 \name{set_window}
 \alias{set_window}
-\title{Sets moving window average
-TODO expand to w/e function not just moving ave (or have a separate func?)}
+\title{Sets moving window average}
 \usage{
 set_window(df, window_size, .f = sum)
 }
@@ -15,5 +14,4 @@ set_window(df, window_size, .f = sum)
 }
 \description{
 Sets moving window average
-TODO expand to w/e function not just moving ave (or have a separate func?)
 }

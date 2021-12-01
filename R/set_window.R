@@ -1,5 +1,4 @@
 #' Sets moving window average
-#' TODO expand to w/e function not just moving ave (or have a separate func?)
 #' 
 #' @param df
 #' @param window_size 
@@ -13,8 +12,8 @@ set_window <- function(df, window_size, .f = sum) {
                     slider::slide_index(.x = n,
                                         .i = elapsed_time,
                                         .f = .f,
-                                        .before = 60 * window_size ,
-                                        .after = 60 * window_size ) %>%
+                                        .before = 60 * window_size,
+                                        .after = 60 * window_size) %>%
                     unlist(),
                   count = 2 * count / window_size )
   dplyr::left_join(df, df_, by = "elapsed_time")

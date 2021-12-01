@@ -5,11 +5,13 @@
 #' @param MIN_TIME
 #' @return df
 #' @export
-load_stream_chat <- function(path, MIN_TIME=1e-6) {
+load_stream_chat <- function(path, MIN_TIME = 1e-6) {
+  
+  reticulate::use_condaenv(condaenv = "twitchNLP")
+  
   # Run Python script clean_html.py to clean html before it enters R
   reticulate::py_run_string("from python.clean_html import main")
   reticulate::py_run_string(glue::glue("main('{path}')"))
-   
   
   all_files <- list.files(path)
   valid_files <- all_files[which(stringr::str_detect(all_files, "translated"))]

@@ -17,8 +17,6 @@ plot_comments_over_time(
 \item{.f}{function of moment}
 
 \item{.fname}{name of function of moment for ggplot title}
-
-\item{interactive}{}
 }
 \value{
 ggplot (time series of some moment of twitch comments)

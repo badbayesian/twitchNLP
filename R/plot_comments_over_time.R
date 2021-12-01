@@ -6,7 +6,7 @@
 #' @param window_size
 #' @param .f function of moment
 #' @param .fname name of function of moment for ggplot title
-#' @param interactive 
+#' @param interactive
 #' @return ggplot (time series of some moment of twitch comments)
 #' @export
 plot_comments_over_time <- function(
@@ -14,7 +14,7 @@ plot_comments_over_time <- function(
   interactive = FALSE) {
   
   gg <- df %>%
-    set_window(window_size , .f) %>%
+    set_window(window_size, .f) %>%
     dplyr::mutate(elapsed_time = as.numeric(elapsed_time)) %>%
     ggplot() +
     aes(x = elapsed_time, y = count) +
