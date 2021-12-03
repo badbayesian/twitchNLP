@@ -1,0 +1,39 @@
+---
+title: "paper"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{paper}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+knitr::knit_engines$set(python = reticulate::eng_python)
+```
+
+```{r single_stream}
+library(furrr)
+plan(multisession)
+
+library(progressr)
+handlers("pbmcapply", "beepr")
+
+
+library(twitchNLP)
+
+# From a given twitch stream chat logs, we can generate a number of different plots
+dylan_nov_26_path <- "data/dylanburnstv/Friday, November 26, 2021/chat/"
+df <- load_stream_chat(dylan_nov_26_path)
+plots <- gen_all_plots(df, path = dylan_nov_26_path,
+                       window_size  = 5, interactive = TRUE)
+single_stream_plots$comments_var
+```
+
+```{r}
+# Similarly, from a given streamer, we can generate the previous plots for each stream
+streamer_plots <- analysis_of_streamer("data/dylanburnstv")
+``````
